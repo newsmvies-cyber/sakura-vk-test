@@ -110,13 +110,13 @@
       <button type="button" class="drawer-link" data-route="catalog">Наше меню <span>⌄</span></button>
       <div class="drawer-categories" id="drawerCategories"></div>
       <hr><button type="button" class="drawer-link" data-route="promotions">Акции <span>↗</span></button><button type="button" class="drawer-link" data-route="about">О нас <span>↗</span></button><button type="button" class="drawer-link" data-route="delivery">Доставка и оплата <span>↗</span></button>
-      <hr><button type="button" class="drawer-link" data-action="profile">Личный кабинет <span>↗</span></button><button type="button" class="drawer-sublink" data-profile-view="orders">Мои заказы</button><button type="button" class="drawer-sublink" data-profile-view="settings">Настройки</button><button type="button" class="drawer-sublink" data-profile-view="coupons">Мои промокоды</button><button type="button" class="drawer-link" data-action="cart">Корзина <b id="drawerCartCount">0</b></button><button type="button" class="drawer-link" data-action="admin">Тестовая админка <span>↗</span></button>
+      <hr><button type="button" class="drawer-link" data-action="profile">Личный кабинет <span>↗</span></button><button type="button" class="drawer-sublink" data-profile-view="orders">Мои заказы</button><button type="button" class="drawer-sublink" data-profile-view="settings">Настройки</button><button type="button" class="drawer-sublink" data-profile-view="coupons">Мои промокоды</button><button type="button" class="drawer-link" data-action="cart">Корзина <b id="drawerCartCount">0</b></button><button type="button" class="drawer-link" data-action="admin" hidden>Тестовая админка <span>↗</span></button>
     </nav>
   </div>
 
   <div class="simple-overlay" id="phoneOverlay" hidden><section class="phone-sheet" role="dialog" aria-modal="true" aria-labelledby="phoneTitle"><button type="button" class="simple-close" data-close="phone" aria-label="Закрыть">×</button><span class="eyebrow">МЫ НА СВЯЗИ</span><h2 id="phoneTitle">Позвонить в «Сакуру»</h2><p>Выберите удобный номер</p><div class="phone-list"><a href="tel:+79611748404">+7 (961) 174-84-04</a><a href="tel:+79155232600">+7 (915) 523-26-00</a><a href="tel:+79511397083">+7 (951) 139-70-83</a><a href="tel:+79205740643">+7 (920) 574-06-43</a></div></section></div>
 
-  <div class="simple-overlay" id="profileOverlay" hidden><section class="profile-sheet" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><button type="button" class="simple-close" data-close="profile" aria-label="Закрыть">×</button><span class="eyebrow">ВАШ АККАУНТ</span><h2 id="profileTitle">Личный кабинет</h2><nav class="profile-tabs" aria-label="Личный кабинет"><button type="button" data-profile-view="orders">Мои заказы</button><button type="button" data-profile-view="settings">Настройки</button><button type="button" data-profile-view="coupons">Мои промокоды</button><button type="button" data-profile-view="admin">Заказы (тест)</button></nav><div id="profileContent"></div></section></div>
+  <div class="simple-overlay" id="profileOverlay" hidden><section class="profile-sheet" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><button type="button" class="simple-close" data-close="profile" aria-label="Закрыть">×</button><span class="eyebrow">ВАШ АККАУНТ</span><h2 id="profileTitle">Личный кабинет</h2><nav class="profile-tabs" aria-label="Личный кабинет"><button type="button" data-profile-view="orders">Мои заказы</button><button type="button" data-profile-view="settings">Настройки</button><button type="button" data-profile-view="coupons">Мои промокоды</button><button type="button" data-profile-view="admin" hidden>Заказы (тест)</button></nav><div id="profileContent"></div></section></div>
 
   <div class="overlay" id="overlay" hidden>
     <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
@@ -155,6 +155,6 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
-  <script src="app.js?v=20261020photos2"></script>
+  <script src="app.js?v=20261020orders2"></script>
 </body>
 </html>
