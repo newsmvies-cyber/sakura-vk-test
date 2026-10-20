@@ -127,5 +127,8 @@
 .admin-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;width:100%}
 .admin-toolbar>span{min-width:0;padding-top:2px}
 .admin-toolbar .secondary-button{flex:0 0 auto;margin-left:auto;transform:translateY(-4px)}
+.admin-toolbar{flex-wrap:wrap}
+#profileOverlay.admin-mode .admin-toolbar>span{flex:1 0 100%}
+#profileOverlay.admin-mode .admin-toolbar .secondary-button{margin-left:0;transform:none;flex:1 1 auto}
 #profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}
 @media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}}
