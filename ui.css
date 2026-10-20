@@ -111,3 +111,14 @@
 .status-notification-consent input{flex:none;margin-top:2px}
 .status-notification-consent span{font-weight:600}
 @media(max-width:760px){#profileOverlay.admin-mode .profile-sheet{padding:calc(18px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom))}#profileOverlay.admin-mode .profile-sheet h2{margin:4px 58px 16px 0;font-size:34px}#profileOverlay.admin-mode .admin-toolbar{font-size:16px}#profileOverlay.admin-mode .admin-order-card{padding:17px;font-size:15px}#profileOverlay.admin-mode .admin-order-head b{font-size:19px}#profileOverlay.admin-mode .admin-order-head small{font-size:12px}#profileOverlay.admin-mode .admin-status-label{align-items:flex-start;flex-direction:column;gap:6px;font-size:14px}#profileOverlay.admin-mode .admin-status-label select{width:100%;font-size:15px}}
+
+/* Sakura-styled refresh controls and mobile close-button clearance from VK chrome. */
+.secondary-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:9px 15px;border:1px solid #eadbd4;border-radius:13px;background:linear-gradient(135deg,#fff 0%,#f8eeea 100%);color:#854356;font-size:12px;font-weight:800;box-shadow:0 3px 10px rgba(88,48,54,.08);transition:transform .16s,box-shadow .16s,border-color .16s}
+.secondary-button:hover{transform:translateY(-1px);border-color:#d8b8b4;box-shadow:0 6px 16px rgba(88,48,54,.13)}
+.secondary-button:active{transform:scale(.98)}
+.secondary-button:disabled{opacity:.55;cursor:wait}
+.search-box input[type=search]{-webkit-appearance:none;appearance:none}
+.search-box input[type=search]::-webkit-search-cancel-button,.search-box input[type=search]::-webkit-search-decoration,.search-box input[type=search]::-ms-clear{display:none;width:0;height:0;-webkit-appearance:none}
+.simple-close{right:78px}
+#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 78px)}
+@media(max-width:760px){.simple-close{right:76px}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 76px)}}
