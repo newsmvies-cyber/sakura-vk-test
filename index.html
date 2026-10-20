@@ -11,7 +11,7 @@
   <title>Сакура — доставка роллов</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="ui.css">
-  <script src="assets/vk-bridge.min.js"></script>
+  <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -138,11 +138,12 @@
           <div class="pickup-address" id="pickupAddress" hidden>Самовывоз: Алексеевка, ул. Некрасова, 59</div>
           <label>Время получения<select name="slot" id="slotSelect" required></select></label>
           <fieldset><legend>Способ оплаты</legend><div class="payment-options"><label><input type="radio" name="payment" value="cash" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="card"><span>Картой при получении</span></label><label><input type="radio" name="payment" value="transfer"><span>Переводом после подтверждения</span></label></div></fieldset>
+          <label class="status-notification-consent"><input type="checkbox" name="notifyStatus"><span>Получать сообщения о статусе заказа в VK</span></label>
           <label>Комментарий к заказу <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например, не звонить в домофон"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="#" data-legal="policy">политикой обработки данных</a> и <a href="#" data-legal="offer">офертой</a></span></label>
           <div class="checkout-total"><span>К оплате</span><strong id="checkoutTotal"></strong></div>
           <button class="primary-button" type="submit">Подтвердить заказ</button>
-          <p class="demo-notice">После подключения backend заказ появится в админке. Сообщение покупателю в VK не отправляется.</p>
+          <p class="demo-notice">Для сообщений о статусе потребуется разрешить сообщения от сообщества «Сакура».</p>
         </form>
       </div>
     </section>
