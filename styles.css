@@ -9,3 +9,5 @@
 @media(max-width:760px){.menu-view-switch{margin:5px 0 12px}.menu-sheets{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.menu-sheet-card{padding:7px;border-radius:14px}.menu-sheet-caption{align-items:flex-start;flex-direction:column;gap:3px;padding:8px 2px 3px}.menu-sheet-caption b{font-size:9px}.menu-sheet-caption small{font-size:8px}.image-viewer{padding:12px}.image-viewer img{max-width:100%;max-height:calc(100dvh - 25px)}}
 
 .product-grid[hidden]{display:none}
+
+.profile-phone-field{display:grid;gap:8px}.phone-permission-button{justify-self:start;font-size:11px;padding:9px 12px}.profile-phone-field label{display:block}

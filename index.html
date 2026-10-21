@@ -9,9 +9,12 @@
   <meta name="vk-app-id" content="54834346">
   <meta name="vk-community-id" content="242422490">
   <title>Сакура — доставка роллов</title>
-  <link rel="stylesheet" href="styles.css?v=20261020profile4">
-  <link rel="stylesheet" href="ui.css?v=20261020archive1">
+  <link rel="stylesheet" href="styles.css?v=20261021request1">
+  <link rel="stylesheet" href="ui.css?v=20261021request1">
   <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
+  <script src="profile-store.js?v=20261021vkprofile1"></script>
+  <script src="order-history-store.js?v=20261021localhistory1"></script>
+  <script src="request-flow.js?v=20261021request1"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -85,12 +88,12 @@
       <section class="info-section" id="delivery" data-page="delivery">
         <div class="section-heading"><div><span class="eyebrow">ПОЛУЧИТЕ ЗАКАЗ УДОБНО</span><h2>Доставка и оплата</h2></div></div>
         <div class="delivery-grid">
-          <article class="info-card"><h3>Условия доставки</h3><ul class="delivery-list"><li><span>Доставка по Алексеевке</span><b>200 ₽</b></li><li><span>При заказе от 990 ₽</span><b>Бесплатно</b></li><li><span>Минимальная сумма заказа</span><b>Нет</b></li><li><span>Доставка</span><b>от 60 минут</b></li><li><span>Самовывоз</span><b>от 30 минут</b></li><li><span>Время работы</span><b>10:00–22:00 МСК</b></li></ul><h3 class="payment-title">Оплата</h3><div class="payment-chips"><span>Картой при получении</span><span>Наличными</span><span>Переводом после подтверждения</span></div></article>
+          <article class="info-card"><h3>Условия доставки</h3><ul class="delivery-list"><li><span>Доставка по Алексеевке</span><b>200 ₽</b></li><li><span>При заказе от 990 ₽</span><b>Бесплатно</b></li><li><span>Минимальная сумма заказа</span><b>Нет</b></li><li><span>Доставка</span><b>от 60 минут</b></li><li><span>Самовывоз</span><b>от 30 минут</b></li><li><span>Время работы</span><b>10:00–22:00 МСК</b></li></ul><h3 class="payment-title">Оплата при получении</h3><div class="payment-chips"><span>Картой</span><span>Наличными</span></div></article>
           <article class="map-card"><div class="map-heading"><div><h3>Алексеевка</h3><p>Белгородская область</p></div><span class="map-pin">⌖</span></div><div class="map-frame"><iframe title="Яндекс Карты — Сакура, Некрасова, 59, Алексеевка" src="https://yandex.ru/map-widget/v1/?mode=search&oid=118623687357&ol=biz&ll=38.704281%2C50.630598&z=14" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><p class="map-address">Адрес: Алексеевка, ул. Некрасова, 59</p><a class="text-action" href="https://yandex.ru/maps/org/sakura/118623687357/?ll=38.704281%2C50.630598&z=16" target="_blank" rel="noreferrer">Открыть Яндекс Карты ↗</a></article>
         </div>
       </section>
 
-      <footer class="footer" data-page="home"><a href="#" data-legal="policy">Политика конфиденциальности</a><a href="#" data-legal="offer">Публичная оферта</a><p>Сакура · Алексеевка · 10:00–22:00 МСК</p><small>Демонстрационная версия — заказы пока не отправляются.</small></footer>
+      <footer class="footer" data-page="home"><a href="#" data-legal="policy">Политика конфиденциальности</a><a href="#" data-legal="offer">Публичная оферта</a><p>Сакура · Алексеевка · 10:00–22:00 МСК</p><small>Демонстрационная версия — заявки пока не отправляются.</small></footer>
     </main>
   </div>
 
@@ -110,13 +113,13 @@
       <button type="button" class="drawer-link" data-route="catalog">Наше меню <span>⌄</span></button>
       <div class="drawer-categories" id="drawerCategories"></div>
       <hr><button type="button" class="drawer-link" data-route="promotions">Акции <span>↗</span></button><button type="button" class="drawer-link" data-route="about">О нас <span>↗</span></button><button type="button" class="drawer-link" data-route="delivery">Доставка и оплата <span>↗</span></button>
-      <hr><button type="button" class="drawer-link" data-action="profile">Личный кабинет <span>↗</span></button><button type="button" class="drawer-sublink" data-profile-view="orders">Мои заказы</button><button type="button" class="drawer-sublink" data-profile-view="settings">Настройки</button><button type="button" class="drawer-sublink" data-profile-view="coupons">Мои промокоды</button><button type="button" class="drawer-link" data-action="cart">Корзина <b id="drawerCartCount">0</b></button><button type="button" class="drawer-link" data-action="admin" hidden>Тестовая админка <span>↗</span></button>
+      <hr><button type="button" class="drawer-link" data-action="profile">Личный кабинет <span>↗</span></button><button type="button" class="drawer-sublink" data-profile-view="orders">Мои заявки</button><button type="button" class="drawer-sublink" data-profile-view="settings">Настройки</button><button type="button" class="drawer-sublink" data-profile-view="coupons">Мои промокоды</button><button type="button" class="drawer-link" data-action="cart">Корзина <b id="drawerCartCount">0</b></button><button type="button" class="drawer-link" data-action="admin" hidden>Тестовая админка <span>↗</span></button>
     </nav>
   </div>
 
   <div class="simple-overlay" id="phoneOverlay" hidden><section class="phone-sheet" role="dialog" aria-modal="true" aria-labelledby="phoneTitle"><button type="button" class="simple-close" data-close="phone" aria-label="Закрыть">×</button><span class="eyebrow">МЫ НА СВЯЗИ</span><h2 id="phoneTitle">Позвонить в «Сакуру»</h2><p>Выберите удобный номер</p><div class="phone-list"><a href="tel:+79611748404">+7 (961) 174-84-04</a><a href="tel:+79155232600">+7 (915) 523-26-00</a><a href="tel:+79511397083">+7 (951) 139-70-83</a><a href="tel:+79205740643">+7 (920) 574-06-43</a></div></section></div>
 
-  <div class="simple-overlay" id="profileOverlay" hidden><section class="profile-sheet" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><button type="button" class="simple-close" data-close="profile" aria-label="Закрыть">×</button><span class="eyebrow">ВАШ АККАУНТ</span><h2 id="profileTitle">Личный кабинет</h2><nav class="profile-tabs" aria-label="Личный кабинет"><button type="button" data-profile-view="orders">Мои заказы</button><button type="button" data-profile-view="settings">Настройки</button><button type="button" data-profile-view="coupons">Мои промокоды</button><button type="button" data-profile-view="admin" hidden>Заказы (тест)</button></nav><div id="profileContent"></div></section></div>
+  <div class="simple-overlay" id="profileOverlay" hidden><section class="profile-sheet" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><button type="button" class="simple-close" data-close="profile" aria-label="Закрыть">×</button><span class="eyebrow">ВАШ АККАУНТ</span><h2 id="profileTitle">Личный кабинет</h2><nav class="profile-tabs" aria-label="Личный кабинет"><button type="button" data-profile-view="orders">Мои заявки</button><button type="button" data-profile-view="settings">Настройки</button><button type="button" data-profile-view="coupons">Мои промокоды</button><button type="button" data-profile-view="admin" hidden>Заявки (тест)</button></nav><div id="profileContent"></div></section></div>
 
   <div class="overlay" id="overlay" hidden>
     <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
@@ -124,26 +127,26 @@
       <div id="cartView">
         <span class="eyebrow">ВАШ ВЫБОР</span><h2 id="sheetTitle">Корзина</h2><div class="cart-items" id="cartItems"></div>
         <div class="shipping-note" id="shippingNote"></div>
-        <div class="bill"><div><span>Корзина</span><b id="subtotal"></b></div><div><span>Доставка</span><b id="deliveryCost"></b></div><div class="bill-total"><span>Итого</span><b id="grandTotal"></b></div></div>
+        <div class="bill"><div><span>Корзина</span><b id="subtotal"></b></div><div><span>Доставка</span><b id="deliveryCost"></b></div><div class="bill-total"><span>Предварительная стоимость</span><b id="grandTotal"></b></div></div>
         <button class="primary-button" id="toCheckout" type="button">Продолжить</button>
       </div>
       <div id="checkoutView" hidden>
-        <button class="back-link" id="backToCart" type="button">← Корзина</button><span class="eyebrow">ПОСЛЕДНИЙ ШАГ</span><h2>Оформление</h2>
+        <button class="back-link" id="backToCart" type="button">← Корзина</button><span class="eyebrow">ПОСЛЕДНИЙ ШАГ</span><h2>Оформление заявки</h2>
         <form id="checkoutForm">
           <label>Ваше имя<input name="name" required maxlength="60" placeholder="Как к вам обращаться"></label>
-          <label>Телефон<input name="phone" type="tel" required inputmode="tel" placeholder="+7 (___) ___-__-__"></label>
+          <div class="profile-phone-field"><label>Телефон<input name="phone" type="tel" required inputmode="tel" placeholder="+7 (___) ___-__-__"></label><button class="secondary-button phone-permission-button" type="button" data-request-profile-phone>Получить номер из ВКонтакте</button></div>
           <label>Количество персон<select name="persons" id="personsSelect" required><option value="1">1 персона</option><option value="2">2 персоны</option><option value="3">3 персоны</option><option value="4">4 персоны</option></select><small class="person-limit-note">До 1 000 ₽ — максимум 4 персоны; свыше 1 000 ₽ — до 10.</small></label>
           <fieldset><legend>Как получить заказ?</legend><div class="segmented"><label><input type="radio" name="fulfillment" value="delivery" checked><span>Доставка</span></label><label><input type="radio" name="fulfillment" value="pickup"><span>Самовывоз</span></label></div></fieldset>
           <label id="addressField">Адрес доставки<input id="deliveryAddressInput" name="address" type="text" autocomplete="street-address" maxlength="180" placeholder="Алексеевка, улица, дом, квартира" aria-describedby="deliveryAddressHint"><small class="address-hint" id="deliveryAddressHint">Укажите город, улицу и номер дома.</small></label>
           <div class="pickup-address" id="pickupAddress" hidden>Самовывоз: Алексеевка, ул. Некрасова, 59</div>
           <label>Время получения<select name="slot" id="slotSelect" required></select></label>
-          <fieldset><legend>Способ оплаты</legend><div class="payment-options"><label><input type="radio" name="payment" value="cash" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="card"><span>Картой при получении</span></label><label><input type="radio" name="payment" value="transfer"><span>Переводом после подтверждения</span></label></div></fieldset>
-          <label class="status-notification-consent"><input type="checkbox" name="notifyStatus"><span>Получать сообщения о статусе заказа в VK</span></label>
-          <label>Комментарий к заказу <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например, не звонить в домофон"></textarea></label>
+          <fieldset><legend>Оплата при получении</legend><div class="payment-options"><label><input type="radio" name="payment" value="Наличными" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="Картой при получении"><span>Картой</span></label></div></fieldset>
+          <label class="status-notification-consent"><input type="checkbox" name="notifyStatus"><span>Получать сообщения о статусе заявки в VK</span></label>
+          <label>Комментарий к заявке <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например, не звонить в домофон"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="#" data-legal="policy">политикой обработки данных</a> и <a href="#" data-legal="offer">офертой</a></span></label>
-          <div class="checkout-total"><span>К оплате</span><strong id="checkoutTotal"></strong></div>
-          <button class="primary-button" type="submit">Подтвердить заказ</button>
-          <p class="demo-notice">Для сообщений о статусе потребуется разрешить сообщения от сообщества «Сакура».</p>
+          <div class="checkout-total"><span>Предварительная стоимость</span><strong id="checkoutTotal"></strong></div>
+          <button class="primary-button" type="submit">Отправить заявку</button>
+          <p class="demo-notice request-hold-note" role="status">Приём заявок пока отключён: сначала должны быть утверждены политика, оферта и текст согласия на уведомления.</p>
         </form>
       </div>
     </section>
@@ -155,7 +158,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
-  <script src="app.js?v=20261021sushigrill2"></script>
+  <script src="app.js?v=20261021request1"></script>
 </body>
 </html>
 

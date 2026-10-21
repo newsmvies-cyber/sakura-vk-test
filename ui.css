@@ -132,3 +132,5 @@
 #profileOverlay.admin-mode .admin-toolbar .secondary-button{margin-left:0;transform:none;flex:1 1 auto}
 #profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}
 @media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}}
+
+.request-hold-note{max-width:390px;margin:10px auto 0;padding:10px 12px;border:1px solid #e7c9a5;border-radius:11px;background:#fff7ea;color:#7b5930;font-size:11px}.profile-empty .request-status-note{display:block;margin-top:5px}
