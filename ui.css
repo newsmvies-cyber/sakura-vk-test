@@ -140,14 +140,27 @@
   .top-actions{margin-right:0;flex:0 0 auto}
   .drawer-backdrop{align-items:center;justify-content:center;padding:8px}
   .app-drawer{width:calc(100vw - 16px);max-width:560px;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:20px 18px calc(20px + env(safe-area-inset-bottom));border-radius:24px}
-  .drawer-head{padding-bottom:16px}
-  .drawer-head .eyebrow{font-size:13px}
-  .drawer-head button{width:46px;height:46px;font-size:28px}
-  .drawer-link{min-height:54px;padding:12px 4px;font-size:18px}
-  .drawer-sublink{min-height:48px;padding:10px 12px;font-size:16px;font-weight:700}
-  .drawer-categories{gap:6px 10px}
-  .drawer-categories .drawer-sublink{justify-content:flex-start;min-height:54px;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);line-height:1.25}
-  .app-drawer hr{margin:14px 0}
+  .app-drawer{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:2px 8px;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+  .drawer-head,.app-drawer>button[data-route="catalog"],.drawer-categories,.app-drawer hr,.app-drawer>button[data-action="profile"],.app-drawer>button[data-action="cart"]{grid-column:1/-1}
+  .app-drawer>button[data-route="delivery"],.app-drawer>button[data-profile-view="coupons"]{grid-column:1/-1}
+  .drawer-head{padding-bottom:8px}
+  .drawer-head .eyebrow{font-size:12px}
+  .drawer-head button{width:40px;height:40px;font-size:25px}
+  .drawer-link{min-height:40px;padding:7px 4px;font-size:15px;line-height:1.2}
+  .drawer-sublink{min-height:38px;padding:6px 8px;font-size:14px;font-weight:700;line-height:1.2}
+  .drawer-categories{gap:4px 8px}
+  .drawer-categories .drawer-sublink{justify-content:flex-start;min-height:42px;padding:7px 9px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);line-height:1.2}
+  .app-drawer hr{margin:5px 0}
   .profile-tabs{gap:8px}
   .profile-tabs button{min-height:46px;padding:10px 15px;font-size:14px}
 }
+
+/* Keep the sheet close control prominent and at the far right edge. */
+.image-viewer-close{right:max(14px,calc(env(safe-area-inset-right) + 14px));width:56px;height:56px;font-size:36px;box-shadow:0 3px 14px rgba(0,0,0,.24)}
+
+/* The customer profile opens as a full-screen app view. */
+#profileOverlay:not(.admin-mode){inset:0;align-items:stretch;justify-content:stretch;padding:0;background:var(--cream);z-index:80}
+#profileOverlay:not(.admin-mode) .profile-sheet{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;padding:calc(24px + env(safe-area-inset-top)) clamp(16px,5vw,72px) calc(24px + env(safe-area-inset-bottom));border-radius:0;box-shadow:none;animation:none}
+#profileOverlay:not(.admin-mode) .profile-sheet>.simple-close{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(env(safe-area-inset-right) + 116px);width:46px;height:46px;font-size:30px}
+#profileOverlay:not(.admin-mode) .profile-sheet h2{max-width:none;margin:0 0 20px;font-size:clamp(30px,4vw,40px)}
+#profileOverlay:not(.admin-mode) .profile-tabs,#profileOverlay:not(.admin-mode) #profileContent{width:min(100%,900px);margin-left:auto;margin-right:auto}
