@@ -224,7 +224,7 @@
     "price": 320
   },
   "roll-sensei": {
-    "name": "Сенсей",
+    "name": "Сенсэй",
     "price": 350
   },
   "roll-complex-19": {
@@ -244,7 +244,7 @@
     "price": 350
   },
   "roll-ottori": {
-    "name": "Оттори",
+    "name": "Отори",
     "price": 280
   },
   "roll-hiyashi-unagi-maki": {
@@ -256,7 +256,7 @@
     "price": 340
   },
   "roll-okirosan": {
-    "name": "Окиросан",
+    "name": "Очиросан",
     "price": 320
   },
   "roll-tonako": {
@@ -268,7 +268,7 @@
     "price": 350
   },
   "roll-sake": {
-    "name": "Сякэ де люкс",
+    "name": "Сяке де люкс",
     "price": 420
   },
   "roll-taiga": {
@@ -288,7 +288,7 @@
     "price": 300
   },
   "roll-ebi-sake": {
-    "name": "Эби сякэ",
+    "name": "Эби сяке",
     "price": 370
   },
   "roll-vegetarian": {
@@ -380,7 +380,7 @@
     "price": 320
   },
   "sake-teriyaki": {
-    "name": "Сякэ терияке",
+    "name": "Сяке терияке",
     "price": 350
   },
   "berloga": {
@@ -436,7 +436,7 @@
     "price": 350
   },
   "hotate-hotto": {
-    "name": "Хотате хотто",
+    "name": "Хотатэ хотто",
     "price": 300
   },
   "sakura-furai": {
@@ -464,7 +464,7 @@
     "price": 1000
   },
   "sake-set": {
-    "name": "Сякэ сет",
+    "name": "Сяки сет",
     "price": 1050
   },
   "assorti-chef": {
@@ -568,7 +568,7 @@
     "price": 570
   },
   "sushi-trio": {
-    "name": "Муки эби · Тори унаги · Сякэ спайс",
+    "name": "Муки эби · Тори унаги · Сяке спайс",
     "price": 280
   },
   "fudzi": {
