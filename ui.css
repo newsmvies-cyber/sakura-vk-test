@@ -134,3 +134,20 @@
 @media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}}
 
 .request-hold-note{max-width:390px;margin:10px auto 0;padding:10px 12px;border:1px solid #e7c9a5;border-radius:11px;background:#fff7ea;color:#7b5930;font-size:11px}.profile-empty .request-status-note{display:block;margin-top:5px}
+
+/* Larger mobile navigation targets and right-aligned header actions. */
+@media(max-width:760px){
+  .top-actions{margin-right:0;flex:0 0 auto}
+  .drawer-backdrop{align-items:center;justify-content:center;padding:8px}
+  .app-drawer{width:calc(100vw - 16px);max-width:560px;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);padding:20px 18px calc(20px + env(safe-area-inset-bottom));border-radius:24px}
+  .drawer-head{padding-bottom:16px}
+  .drawer-head .eyebrow{font-size:13px}
+  .drawer-head button{width:46px;height:46px;font-size:28px}
+  .drawer-link{min-height:54px;padding:12px 4px;font-size:18px}
+  .drawer-sublink{min-height:48px;padding:10px 12px;font-size:16px;font-weight:700}
+  .drawer-categories{gap:6px 10px}
+  .drawer-categories .drawer-sublink{justify-content:flex-start;min-height:54px;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);line-height:1.25}
+  .app-drawer hr{margin:14px 0}
+  .profile-tabs{gap:8px}
+  .profile-tabs button{min-height:46px;padding:10px 15px;font-size:14px}
+}
