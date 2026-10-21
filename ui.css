@@ -130,8 +130,8 @@
 .admin-toolbar{flex-wrap:wrap}
 #profileOverlay.admin-mode .admin-toolbar>span{flex:1 0 100%}
 #profileOverlay.admin-mode .admin-toolbar .secondary-button{margin-left:0;transform:none;flex:1 1 auto}
-#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}
-@media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 116px)}}
+#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 14px)}
+@media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 14px)}}
 
 .request-hold-note{max-width:390px;margin:10px auto 0;padding:10px 12px;border:1px solid #e7c9a5;border-radius:11px;background:#fff7ea;color:#7b5930;font-size:11px}.profile-empty .request-status-note{display:block;margin-top:5px}
 
@@ -161,6 +161,6 @@
 /* The customer profile opens as a full-screen app view. */
 #profileOverlay:not(.admin-mode){inset:0;align-items:stretch;justify-content:stretch;padding:0;background:var(--cream);z-index:80}
 #profileOverlay:not(.admin-mode) .profile-sheet{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;padding:calc(24px + env(safe-area-inset-top)) clamp(16px,5vw,72px) calc(24px + env(safe-area-inset-bottom));border-radius:0;box-shadow:none;animation:none}
-#profileOverlay:not(.admin-mode) .profile-sheet>.simple-close{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(env(safe-area-inset-right) + 116px);width:46px;height:46px;font-size:30px}
+#profileOverlay:not(.admin-mode) .profile-sheet>.simple-close{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(env(safe-area-inset-right) + 14px);width:46px;height:46px;font-size:30px}
 #profileOverlay:not(.admin-mode) .profile-sheet h2{max-width:none;margin:0 0 20px;font-size:clamp(30px,4vw,40px)}
 #profileOverlay:not(.admin-mode) .profile-tabs,#profileOverlay:not(.admin-mode) #profileContent{width:min(100%,900px);margin-left:auto;margin-right:auto}
