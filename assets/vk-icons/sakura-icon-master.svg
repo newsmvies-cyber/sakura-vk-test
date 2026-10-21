@@ -1,16 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="576" height="576" viewBox="0 0 184 184" role="img" aria-label="Сакура — ветка с бутонами на розовом фоне">
-<rect width="184" height="184" fill="#F2E3DE"/>
-<g fill="none" stroke="#76504F" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M88 163 C94 145 89 123 85 105"/>
-<path d="M85 113 C74 100 60 80 48 58"/>
-<path d="M85 106 C80 92 79 77 80 62"/>
-<path d="M88 125 C100 113 108 105 119 101"/>
-<path d="M88 118 C104 108 119 99 143 91"/>
-</g>
-<g fill="#BE7182">
-<path d="M46 53 C47 60 39 65 31 63 C22 61 16 52 19 43 C21 34 29 29 36 34 C44 35 51 42 47 50 C51 54 49 58 46 53 Z"/>
-<path d="M90 68 C91 75 83 80 75 78 C66 76 60 67 63 58 C65 49 73 44 80 49 C88 50 95 57 91 65 C95 69 93 73 90 68 Z"/>
-<path d="M153 84 C154 91 146 96 138 94 C129 92 123 83 126 74 C128 65 136 60 143 65 C151 66 158 73 154 81 C158 85 156 89 153 84 Z"/>
-<path d="M130 123 C131 130 123 135 115 133 C106 131 100 122 103 113 C105 104 113 99 120 104 C128 105 135 112 131 120 C135 124 133 128 130 123 Z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="576" viewBox="0 0 576 576" role="img" aria-label="Суши-ролл с цветком сакуры на розовом фоне">
+<rect width="576" height="576" fill="#D87991"/>
+<rect x="126" y="220" width="324" height="192" rx="62" fill="#44232D"/>
+<ellipse cx="288" cy="219" rx="192" ry="87" fill="#44232D"/>
+<ellipse cx="288" cy="216.5" rx="165" ry="65.5" fill="#FFF1E6"/>
+<ellipse cx="288.00" cy="189.00" rx="15" ry="30" transform="rotate(0 288.00 189.00)" fill="#C9657E"/>
+<ellipse cx="313.68" cy="207.66" rx="15" ry="30" transform="rotate(72 313.68 207.66)" fill="#C9657E"/>
+<ellipse cx="303.87" cy="237.84" rx="15" ry="30" transform="rotate(144 303.87 237.84)" fill="#C9657E"/>
+<ellipse cx="272.13" cy="237.84" rx="15" ry="30" transform="rotate(216 272.13 237.84)" fill="#C9657E"/>
+<ellipse cx="262.32" cy="207.66" rx="15" ry="30" transform="rotate(288 262.32 207.66)" fill="#C9657E"/>
+<circle cx="288" cy="216" r="7" fill="#7C3348"/>
+<circle cx="288.00" cy="200.00" r="2" fill="#8C4054"/>
+<circle cx="303.22" cy="211.06" r="2" fill="#8C4054"/>
+<circle cx="297.40" cy="228.94" r="2" fill="#8C4054"/>
+<circle cx="278.60" cy="228.94" r="2" fill="#8C4054"/>
+<circle cx="272.78" cy="211.06" r="2" fill="#8C4054"/>
 </svg>
