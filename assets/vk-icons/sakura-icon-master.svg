@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="576" viewBox="0 0 184 184" role="img" aria-label="Иконка Сакуры по образцу владельца">
+<rect width="184" height="184" fill="#FAF8F6"/>
+<rect x="32" y="19" width="129" height="146" rx="47" fill="#F2E3DE"/>
+<g fill="none" stroke="#76504F" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M94 145 C98 130 93 108 91 91"/>
+<path d="M91 98 C81 92 72 82 64 68"/>
+<path d="M91 91 C88 84 87 78 87 72"/>
+<path d="M95 109 C101 103 108 99 115 96"/>
+<path d="M97 101 C110 92 120 89 132 91"/>
+</g>
+<g fill="#BE7182">
+<path d="M70 67 C68 72 60 73 55 70 C48 66 45 59 47 52 C49 45 57 42 64 47 C70 51 75 59 71 64 Z"/>
+<path d="M96 76 C94 81 86 82 81 79 C75 75 73 68 76 61 C79 54 87 51 93 56 C99 60 103 68 98 73 Z"/>
+<path d="M139 87 C136 92 128 93 123 90 C116 86 114 79 117 72 C120 65 128 62 134 67 C140 71 144 79 141 84 Z"/>
+<path d="M123 115 C120 121 112 123 107 120 C100 117 98 110 101 103 C104 96 112 94 118 99 C124 103 128 110 125 113 Z"/>
+</g>
+</svg>
