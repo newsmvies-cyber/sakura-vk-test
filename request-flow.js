@@ -6,7 +6,6 @@
     offer: 'offer-draft-2026-10-20-v1',
     consent: 'status-consent-draft-2026-10-20-v1'
   };
-  var LEGAL_DOCUMENTS_READY = false;
   var RECEIPT_PAYMENT_OPTIONS = [
     { value: 'Наличными', label: 'Наличными при получении' },
     { value: 'Картой при получении', label: 'Картой при получении' }
@@ -73,22 +72,14 @@
     return fulfillment === 'delivery' && amount > 0 && amount < 990 ? 200 : 0;
   }
 
-  async function dispatchWithGate(payload, transport, documentsReady) {
-    if (documentsReady !== true) {
-      return { ok: false, sent: false, error: 'legal_documents_not_approved' };
-    }
+  async function dispatch(payload, transport) {
     if (typeof transport !== 'function') throw new TypeError('transport must be a function');
     var result = await transport(payload);
     return Object.assign({ sent: true }, result || {});
   }
 
-  function dispatch(payload, transport) {
-    return dispatchWithGate(payload, transport, LEGAL_DOCUMENTS_READY);
-  }
-
   root.SakuraRequestFlow = {
     DOCUMENT_VERSIONS: DOCUMENT_VERSIONS,
-    LEGAL_DOCUMENTS_READY: LEGAL_DOCUMENTS_READY,
     RECEIPT_PAYMENT_OPTIONS: RECEIPT_PAYMENT_OPTIONS,
     statusCode: statusCode,
     statusLabel: statusLabel,
@@ -98,6 +89,6 @@
     dispatch: dispatch
   };
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Object.assign({}, root.SakuraRequestFlow, { dispatchWithGateForTest: dispatchWithGate });
+    module.exports = root.SakuraRequestFlow;
   }
 })(typeof window !== 'undefined' ? window : globalThis);

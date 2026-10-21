@@ -1,0 +1,578 @@
+{
+  "maki-cucumber": {
+    "name": "Огурец",
+    "price": 90
+  },
+  "maki-crab": {
+    "name": "Краб",
+    "price": 90
+  },
+  "maki-avocado": {
+    "name": "Авокадо",
+    "price": 100
+  },
+  "maki-butterfish": {
+    "name": "Масляная рыба",
+    "price": 170
+  },
+  "maki-chuka": {
+    "name": "Чука",
+    "price": 90
+  },
+  "maki-tobiko": {
+    "name": "Тобико",
+    "price": 90
+  },
+  "maki-mussels": {
+    "name": "Мидии",
+    "price": 90
+  },
+  "maki-shrimp": {
+    "name": "Креветка",
+    "price": 200
+  },
+  "maki-eel": {
+    "name": "Угорь",
+    "price": 200
+  },
+  "maki-smoked-salmon": {
+    "name": "Копчёный лосось",
+    "price": 220
+  },
+  "maki-salmon": {
+    "name": "Лосось",
+    "price": 200
+  },
+  "sakura-classic": {
+    "name": "Сакура классика",
+    "price": 280
+  },
+  "yasai": {
+    "name": "Ясай",
+    "price": 200
+  },
+  "chicken": {
+    "name": "Чикен",
+    "price": 280
+  },
+  "spice": {
+    "name": "Спайс",
+    "price": 220
+  },
+  "maki-koyosi-spice": {
+    "name": "Койоси спайс ролл",
+    "price": 250
+  },
+  "maki-okinawa-classic": {
+    "name": "Окинава классика",
+    "price": 270
+  },
+  "maki-unagi-bacon": {
+    "name": "Унаги бекон маки",
+    "price": 270
+  },
+  "sushi-shrimp": {
+    "name": "Креветка",
+    "price": 100
+  },
+  "sushi-salmon": {
+    "name": "Лосось",
+    "price": 100
+  },
+  "sushi-eel": {
+    "name": "Угорь",
+    "price": 100
+  },
+  "sushi-chuka": {
+    "name": "Чука",
+    "price": 70
+  },
+  "sushi-ikura": {
+    "name": "Икура",
+    "price": 150
+  },
+  "sushi-tobiko": {
+    "name": "Тобико",
+    "price": 100
+  },
+  "sushi-spicy": {
+    "name": "Острые",
+    "price": 100
+  },
+  "sushi-muki": {
+    "name": "Муки эби",
+    "price": 100
+  },
+  "sushi-tori": {
+    "name": "Тори унаги",
+    "price": 100
+  },
+  "sushi-california": {
+    "name": "Калифорния",
+    "price": 100
+  },
+  "sushi-philadelphia": {
+    "name": "Филадельфия",
+    "price": 100
+  },
+  "sushi-grill": {
+    "name": "Суши гриль",
+    "price": 400
+  },
+  "bavaria": {
+    "name": "Бавария",
+    "price": 350
+  },
+  "casablanca": {
+    "name": "Касабланка",
+    "price": 320
+  },
+  "ebi-unagi": {
+    "name": "Эби унаги",
+    "price": 350
+  },
+  "green-roll": {
+    "name": "Грин ролл",
+    "price": 320
+  },
+  "miyami": {
+    "name": "Майями",
+    "price": 350
+  },
+  "philadelphia-roll": {
+    "name": "Филадельфия",
+    "price": 350
+  },
+  "sake-tempura": {
+    "name": "Сякэ темпура",
+    "price": 370
+  },
+  "fudji": {
+    "name": "Фуджи",
+    "price": 280
+  },
+  "roll-california": {
+    "name": "Калифорния с кунжутом",
+    "price": 270
+  },
+  "roll-toru": {
+    "name": "Тори тору",
+    "price": 280
+  },
+  "roll-ot-chef": {
+    "name": "От шефа",
+    "price": 320
+  },
+  "roll-spice": {
+    "name": "Спайс тори",
+    "price": 270
+  },
+  "roll-geisha-maki": {
+    "name": "Гейша маки",
+    "price": 300
+  },
+  "roll-marchibo-roll": {
+    "name": "Марчибо ролл",
+    "price": 320
+  },
+  "roll-banito": {
+    "name": "Банито",
+    "price": 280
+  },
+  "roll-hiyashi": {
+    "name": "Хияши",
+    "price": 310
+  },
+  "roll-ebi-maki": {
+    "name": "Эби маки",
+    "price": 350
+  },
+  "roll-fruit-roll": {
+    "name": "Фруктовый ролл",
+    "price": 700
+  },
+  "roll-americano": {
+    "name": "Американо",
+    "price": 330
+  },
+  "roll-philadelphia": {
+    "name": "Филадельфия нами",
+    "price": 350
+  },
+  "roll-fresh": {
+    "name": "Фреш",
+    "price": 280
+  },
+  "roll-shinobi": {
+    "name": "Шиноби",
+    "price": 350
+  },
+  "roll-venice": {
+    "name": "Венеция",
+    "price": 340
+  },
+  "roll-asia": {
+    "name": "Азия",
+    "price": 350
+  },
+  "roll-nezhny": {
+    "name": "Нежный",
+    "price": 230
+  },
+  "roll-okinawa": {
+    "name": "Окинава",
+    "price": 320
+  },
+  "roll-sensei": {
+    "name": "Сенсей",
+    "price": 350
+  },
+  "roll-complex-19": {
+    "name": "Аляска",
+    "price": 290
+  },
+  "roll-dragon": {
+    "name": "Дракон",
+    "price": 350
+  },
+  "roll-black-roll": {
+    "name": "Блэк ролл",
+    "price": 280
+  },
+  "roll-philadelphia-black": {
+    "name": "Филадельфия блэк",
+    "price": 350
+  },
+  "roll-ottori": {
+    "name": "Оттори",
+    "price": 280
+  },
+  "roll-hiyashi-unagi-maki": {
+    "name": "Хияши унаги маки",
+    "price": 280
+  },
+  "roll-complex-25": {
+    "name": "Катана",
+    "price": 340
+  },
+  "roll-okirosan": {
+    "name": "Окиросан",
+    "price": 320
+  },
+  "roll-tonako": {
+    "name": "Тонако",
+    "price": 320
+  },
+  "roll-osaka": {
+    "name": "Осака",
+    "price": 350
+  },
+  "roll-sake": {
+    "name": "Сякэ де люкс",
+    "price": 420
+  },
+  "roll-taiga": {
+    "name": "Тайга",
+    "price": 290
+  },
+  "roll-baron": {
+    "name": "Барон",
+    "price": 280
+  },
+  "roll-chicago": {
+    "name": "Чикаго",
+    "price": 310
+  },
+  "roll-california-roll": {
+    "name": "Калифорния",
+    "price": 300
+  },
+  "roll-ebi-sake": {
+    "name": "Эби сякэ",
+    "price": 370
+  },
+  "roll-vegetarian": {
+    "name": "Вегетарианский",
+    "price": 260
+  },
+  "roll-ot": {
+    "name": "Лотос",
+    "price": 330
+  },
+  "roll-unagi": {
+    "name": "Унаги грин",
+    "price": 290
+  },
+  "roll-tatami": {
+    "name": "Татами",
+    "price": 330
+  },
+  "roll-thai-roll": {
+    "name": "Тайский ролл",
+    "price": 300
+  },
+  "roll-sake-unagi-maki": {
+    "name": "Сякэ унаги маки",
+    "price": 350
+  },
+  "roll-unagi-maki": {
+    "name": "Унаги урамаки",
+    "price": 350
+  },
+  "roll-pekin": {
+    "name": "Пекин",
+    "price": 370
+  },
+  "roll-pasadena": {
+    "name": "Пасадена",
+    "price": 750
+  },
+  "roll-masuda": {
+    "name": "Масуда",
+    "price": 320
+  },
+  "roll-complex-45": {
+    "name": "Тори",
+    "price": 270
+  },
+  "roll-tobiko-maki": {
+    "name": "Тобико маки",
+    "price": 310
+  },
+  "roll-complex-47": {
+    "name": "Нагано",
+    "price": 350
+  },
+  "roll-shanghai": {
+    "name": "Шанхай",
+    "price": 290
+  },
+  "arata": {
+    "name": "Арада",
+    "price": 380
+  },
+  "takeshi": {
+    "name": "Такеши",
+    "price": 320
+  },
+  "kayosi-grill": {
+    "name": "Кайоси гриль",
+    "price": 280
+  },
+  "ebi-grill-maki": {
+    "name": "Эби гриль маки",
+    "price": 350
+  },
+  "idzumitai-grill": {
+    "name": "Идзумитай гриль",
+    "price": 310
+  },
+  "miyoko": {
+    "name": "Миоко",
+    "price": 320
+  },
+  "pod-pivko": {
+    "name": "Под пивко",
+    "price": 300
+  },
+  "kalifornia-grill": {
+    "name": "Калифорния гриль",
+    "price": 320
+  },
+  "sake-teriyaki": {
+    "name": "Сякэ терияке",
+    "price": 350
+  },
+  "berloga": {
+    "name": "Берлога",
+    "price": 300
+  },
+  "bibao": {
+    "name": "Бильбао",
+    "price": 300
+  },
+  "geisha-grill": {
+    "name": "Гейша",
+    "price": 350
+  },
+  "idzumitai-hotto": {
+    "name": "Идзумитай хотто",
+    "price": 290
+  },
+  "kayosi-hotto": {
+    "name": "Кайоси хотто",
+    "price": 270
+  },
+  "tekka-hotto": {
+    "name": "Текка хотто",
+    "price": 300
+  },
+  "oisi-hotto": {
+    "name": "Ойси хотто",
+    "price": 300
+  },
+  "singapur": {
+    "name": "Сингапур",
+    "price": 300
+  },
+  "syaki-hot": {
+    "name": "Сяки хот",
+    "price": 290
+  },
+  "philadelphia-hotto": {
+    "name": "Филадельфия хотто",
+    "price": 350
+  },
+  "taiso-hotto": {
+    "name": "Тайсо хотто",
+    "price": 300
+  },
+  "kanni-hotto": {
+    "name": "Канни хотто",
+    "price": 300
+  },
+  "seishi": {
+    "name": "Сейши",
+    "price": 350
+  },
+  "hotate-hotto": {
+    "name": "Хотате хотто",
+    "price": 300
+  },
+  "sakura-furai": {
+    "name": "Сакура фурай",
+    "price": 350
+  },
+  "imperiya": {
+    "name": "Империя",
+    "price": 300
+  },
+  "set-4": {
+    "name": "Сет 4",
+    "price": 1000
+  },
+  "set-5": {
+    "name": "Сет 5",
+    "price": 1000
+  },
+  "set-6": {
+    "name": "Сет 6",
+    "price": 1000
+  },
+  "set-7": {
+    "name": "Сет 7",
+    "price": 1000
+  },
+  "sake-set": {
+    "name": "Сякэ сет",
+    "price": 1050
+  },
+  "assorti-chef": {
+    "name": "Ассорти от шефа",
+    "price": 800
+  },
+  "yaposha": {
+    "name": "Япошка",
+    "price": 800
+  },
+  "duet": {
+    "name": "Дуэт",
+    "price": 950
+  },
+  "kalifornia-mega": {
+    "name": "Калифорния мега",
+    "price": 850
+  },
+  "sytnyi": {
+    "name": "Сытный",
+    "price": 850
+  },
+  "full-chaos": {
+    "name": "Фулл хаос",
+    "price": 1000
+  },
+  "corporate": {
+    "name": "Корпоративный",
+    "price": 2200
+  },
+  "sushi-set-large": {
+    "name": "Суши сет большой",
+    "price": 1200
+  },
+  "set-kasumi": {
+    "name": "Сет Касуми",
+    "price": 2300
+  },
+  "unagi-set": {
+    "name": "Унаги сет",
+    "price": 1050
+  },
+  "hot-set": {
+    "name": "Хот сет",
+    "price": 1500
+  },
+  "set-gold-fish": {
+    "name": "Сет Голд Фиш",
+    "price": 600
+  },
+  "set-1": {
+    "name": "Сет 1",
+    "price": 450
+  },
+  "set-2": {
+    "name": "Сет 2",
+    "price": 600
+  },
+  "set-3": {
+    "name": "Сет 3",
+    "price": 520
+  },
+  "set-philadelphia": {
+    "name": "Сет Филадельфия",
+    "price": 850
+  },
+  "set-sushi": {
+    "name": "Суши сет",
+    "price": 900
+  },
+  "set-kalifornia": {
+    "name": "Сет Калифорния",
+    "price": 450
+  },
+  "set-postny": {
+    "name": "Постный",
+    "price": 550
+  },
+  "set-rio": {
+    "name": "Рио",
+    "price": 1400
+  },
+  "vasabi": {
+    "name": "Васаби",
+    "price": 100
+  },
+  "soy-sauce": {
+    "name": "Соевый соус",
+    "price": 30
+  },
+  "ginger": {
+    "name": "Имбирь",
+    "price": 50
+  },
+  "fries": {
+    "name": "Картошка фри",
+    "price": 200
+  },
+  "ebi-tempura": {
+    "name": "Креветка в темпуре",
+    "price": 570
+  },
+  "sushi-trio": {
+    "name": "Муки эби · Тори унаги · Сякэ спайс",
+    "price": 280
+  },
+  "fudzi": {
+    "name": "Фудзи",
+    "price": 290
+  }
+}

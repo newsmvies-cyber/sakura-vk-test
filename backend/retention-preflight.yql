@@ -1,0 +1,5 @@
+-- Read-only preflight; do not include payload values because they contain personal data.
+SELECT status, COUNT(*) AS row_count
+FROM orders
+GROUP BY status
+ORDER BY status;

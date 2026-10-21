@@ -1,0 +1,16 @@
+{
+  "description": "Example only; do not apply until the cleanup function and retention policy are approved.",
+  "timer": {
+    "cron_expression": "0/15 * * * ? *",
+    "payload": "sakura-order-pii-cleanup-v1"
+  },
+  "function": {
+    "entry_point": "cleanup.handler",
+    "service_account_role": "functions.functionInvoker",
+    "retry_attempts": 3,
+    "retry_interval_seconds": 15,
+    "dead_letter_queue": "TODO: configure and monitor, if available"
+  },
+  "required_environment_variable": "CLEANUP_TRIGGER_ID",
+  "timezone": "UTC"
+}
