@@ -19,12 +19,13 @@ class MockYdb {
         this.orders.set(id, { id, created_at: createdAt, status, payload });
         return [];
       }
+      if (statement.startsWith('SELECT 1 AS connected')) return [[{ connected: 1 }]];
       if (statement.startsWith('SELECT payload FROM orders WHERE id =')) {
         const row = this.orders.get(values[0]);
         return [row ? [{ payload: row.payload }] : []];
       }
-      if (statement.startsWith('SELECT payload FROM orders ORDER BY')) {
-        return [[...this.orders.values()].map(({ payload }) => ({ payload }))];
+      if (statement.startsWith('SELECT id, payload FROM orders ORDER BY')) {
+        return [[...this.orders.values()].sort((a, b) => b.created_at.localeCompare(a.created_at)).slice(0, 200).map(({ id, payload }) => ({ id, payload }))];
       }
       if (statement.startsWith('SELECT id, status, payload FROM orders WHERE id >')) {
         const [cursorId] = values;
@@ -113,6 +114,36 @@ test('only an administrator may change statuses or read the admin list', async (
   assert.deepEqual(ownOrders.body.orders, []);
   const csvRoute = await jsonResponse(await handler(request('GET', '/admin/orders/export.csv', null, 'customer')));
   assert.equal(csvRoute.status, 403);
+});
+
+test('order intake can be paused by admin, is public to read, blocks new orders, and does not leak as an order', async () => {
+  const { db, handler } = setup();
+  const settingPath = '/admin/orders/SAKURA-SETTING-ORDER-INTAKE/status';
+  const publicState = await jsonResponse(await handler(request('GET', '/health', null, 'customer')));
+  assert.equal(publicState.body.acceptingOrders, true);
+
+  const forbidden = await jsonResponse(await handler(request('PATCH', settingPath, { acceptingOrders: false }, 'customer')));
+  assert.equal(forbidden.status, 403);
+
+  const paused = await jsonResponse(await handler(request('PATCH', settingPath, { acceptingOrders: false })));
+  assert.equal(paused.status, 200);
+  assert.equal(paused.body.acceptingOrders, false);
+  const publicPaused = await jsonResponse(await handler(request('GET', '/health', null, 'customer')));
+  assert.equal(publicPaused.body.acceptingOrders, false);
+
+  const itemId = Object.keys(catalog)[0];
+  const validOrder = { name: 'Тест', phone: '+7 900 000-00-00', fulfillment: 'pickup', items: [{ id: itemId, quantity: 1 }], payment: 'Наличными', offerAccepted: true, offerVersion: 'offer-draft-2026-10-20-v1' };
+  const rejected = await jsonResponse(await handler(request('POST', '/orders', validOrder, 'customer')));
+  assert.equal(rejected.status, 503);
+  assert.equal(rejected.body.error, 'order_intake_paused');
+  assert.equal(db.orders.size, 1);
+
+  const adminList = await jsonResponse(await handler(request('GET', '/admin/orders')));
+  assert.deepEqual(adminList.body.orders, []);
+  assert.equal(adminList.body.acceptingOrders, false);
+  const resumed = await jsonResponse(await handler(request('PATCH', settingPath, { acceptingOrders: true })));
+  assert.equal(resumed.body.acceptingOrders, true);
+  assert.equal((await jsonResponse(await handler(request('GET', '/health')))).body.acceptingOrders, true);
 });
 
 test('customer history is filtered by verified identity across database pages', async () => {

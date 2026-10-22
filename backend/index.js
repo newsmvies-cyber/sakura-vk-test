@@ -7,6 +7,16 @@ const statusLabels = { new: 'Ожидает подтверждения', accepte
 const appId = '54834346';
 const maxBodyBytes = 32 * 1024;
 const legalDocumentVersions = { offer: 'offer-draft-2026-10-20-v1', consent: 'status-consent-draft-2026-10-20-v1' };
+const orderIntakeSettingId = 'SAKURA-SETTING-ORDER-INTAKE';
+
+function parseOrderIntake(payload) {
+  try {
+    const value = JSON.parse(payload);
+    return !(value && value.kind === 'order_intake_setting' && value.acceptingOrders === false);
+  } catch (_) {
+    return true;
+  }
+}
 
 function response(statusCode, body, origin) {
   return {
@@ -256,10 +266,14 @@ function createHandler(dependencies = {}) {
   if (origin && !corsOrigin) return response(403, { error: 'origin_not_allowed' }, 'null');
   if (method === 'GET' && path === '/health') {
     try {
-      const [rows = []] = await db((sql) => sql`SELECT 1 AS connected`, context);
-      return response(rows.length === 1 ? 200 : 503, { ok: rows.length === 1, service: 'sakura-orders', database: rows.length === 1 ? 'connected' : 'unavailable', ordersEnabled: env.ORDERS_ENABLED === 'true', testOrdersOnly: testOrdersOnly(env) }, corsOrigin);
+      const health = await db(async (sql) => {
+        const [rows = []] = await sql`SELECT 1 AS connected`;
+        const [settings = []] = await sql`SELECT payload FROM orders WHERE id = ${orderIntakeSettingId}`;
+        return { connected: rows.length === 1, acceptingOrders: settings.length ? parseOrderIntake(settings[0].payload) : true };
+      }, context);
+      return response(health.connected ? 200 : 503, { ok: health.connected, service: 'sakura-orders', database: health.connected ? 'connected' : 'unavailable', ordersEnabled: env.ORDERS_ENABLED === 'true', testOrdersOnly: testOrdersOnly(env), acceptingOrders: health.acceptingOrders }, corsOrigin);
     } catch (_) {
-      return response(503, { ok: false, service: 'sakura-orders', database: 'unavailable', ordersEnabled: env.ORDERS_ENABLED === 'true', testOrdersOnly: testOrdersOnly(env) }, corsOrigin);
+      return response(503, { ok: false, service: 'sakura-orders', database: 'unavailable', ordersEnabled: env.ORDERS_ENABLED === 'true', testOrdersOnly: testOrdersOnly(env), acceptingOrders: true }, corsOrigin);
     }
   }
 
@@ -276,6 +290,8 @@ function createHandler(dependencies = {}) {
     if (method === 'POST' && path === '/orders') {
       if (env.ORDERS_ENABLED !== 'true') return response(503, { error: 'orders_temporarily_disabled' }, corsOrigin);
       if (!identity) return response(401, { error: 'vk_auth_required' }, corsOrigin);
+      const [intakeRows = []] = await db((sql) => sql`SELECT payload FROM orders WHERE id = ${orderIntakeSettingId}`, context);
+      if (intakeRows.length && !parseOrderIntake(intakeRows[0].payload)) return response(503, { error: 'order_intake_paused' }, corsOrigin);
       if (testOrdersOnly(env) && !adminCheck(identity.userId)) return response(403, { error: 'test_orders_staff_only' }, corsOrigin);
       let order;
       let input;
@@ -324,19 +340,30 @@ function createHandler(dependencies = {}) {
         const ok = await runYdbReadWriteProbe(context, db);
         return response(ok ? 200 : 503, { ok, database: ok ? 'read_write_ok' : 'probe_mismatch' }, corsOrigin);
       }
-      const [rows = []] = await db((sql) => sql`SELECT payload FROM orders ORDER BY created_at DESC LIMIT 200`, context);
-      const orders = rows.map((row) => {
+      const result = await db(async (sql) => {
+        const [rows = []] = await sql`SELECT id, payload FROM orders ORDER BY created_at DESC LIMIT 200`;
+        const [settings = []] = await sql`SELECT payload FROM orders WHERE id = ${orderIntakeSettingId}`;
+        return { rows, acceptingOrders: settings.length ? parseOrderIntake(settings[0].payload) : true };
+      }, context);
+      const orders = result.rows.filter((row) => row.id !== orderIntakeSettingId).map((row) => {
         const order = JSON.parse(row.payload);
         delete order.vkUserId;
         return order;
       });
-      return response(200, { orders }, corsOrigin);
+      return response(200, { orders, acceptingOrders: result.acceptingOrders }, corsOrigin);
     }
 
     const statusMatch = path.match(/^\/admin\/orders\/([A-Za-z0-9-]+)\/status$/);
     if (method === 'PATCH' && statusMatch) {
       let body;
       try { body = parseBody(event); } catch (_) { return response(400, { error: 'invalid_request' }, corsOrigin); }
+      if (statusMatch[1] === orderIntakeSettingId) {
+        if (typeof body.acceptingOrders !== 'boolean') return response(400, { error: 'invalid_order_intake_setting' }, corsOrigin);
+        const setting = { id: orderIntakeSettingId, kind: 'order_intake_setting', acceptingOrders: body.acceptingOrders, updatedAt: now().toISOString() };
+        const settingStatus = 'system';
+        await db((sql) => sql`UPSERT INTO orders (id, created_at, status, payload) VALUES (${orderIntakeSettingId}, ${setting.updatedAt}, ${settingStatus}, ${JSON.stringify(setting)})`, context);
+        return response(200, { ok: true, acceptingOrders: body.acceptingOrders }, corsOrigin);
+      }
       if (!ALLOWED_STATUSES.has(body.status)) return response(400, { error: 'invalid_status' }, corsOrigin);
       const updated = await db(async (sql) => {
         const [rows = []] = await sql`SELECT payload FROM orders WHERE id = ${statusMatch[1]}`;

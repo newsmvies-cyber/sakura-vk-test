@@ -134,6 +134,16 @@
 @media(max-width:760px){.top-actions{margin-right:clamp(72px,26vw,104px)}#profileOverlay.admin-mode .simple-close{right:calc(env(safe-area-inset-right) + 14px)}}
 
 .request-hold-note{max-width:390px;margin:10px auto 0;padding:10px 12px;border:1px solid #e7c9a5;border-radius:11px;background:#fff7ea;color:#7b5930;font-size:11px}.profile-empty .request-status-note{display:block;margin-top:5px}
+.order-intake-banner,.order-intake-checkout{margin:12px auto;padding:14px 16px;border:1px solid #dfb8a5;border-radius:14px;background:#fff2e8;color:#75453b;text-align:center;font-size:14px;font-weight:800;line-height:1.45}
+.order-intake-banner{max-width:1180px}
+.order-intake-checkout{font-size:13px}
+.intake-admin-control{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.intake-admin-state{color:var(--berry);font-size:16px;font-weight:800}
+.secondary-button.is-enabled{border-color:#9fc8a7;background:#edf8ef;color:#28663a}
+.secondary-button.needs-permission{border-color:#e0b4a2;background:#fff1e9;color:#9a452f}
+.secondary-button.intake-paused{border-color:#e0b4a2;background:#fff1e9;color:#9a452f}
+#profileOverlay.admin-mode .intake-admin-control .secondary-button{min-height:46px;padding:10px 18px;font-size:15px}
+@media(max-width:760px){.order-intake-banner{margin:10px 12px;font-size:13px}.intake-admin-control{align-items:stretch;flex-direction:column}.intake-admin-state{font-size:16px}#profileOverlay.admin-mode .intake-admin-control .secondary-button{width:100%}}
 
 /* Larger mobile navigation targets and right-aligned header actions. */
 @media(max-width:760px){

@@ -27,8 +27,8 @@ class MemoryYdb {
         const row = this.orders.get(values[0]);
         return [row ? [{ payload: row.payload }] : []];
       }
-      if (statement.startsWith('SELECT payload FROM orders ORDER BY')) {
-        return [[...this.orders.values()].map(({ payload }) => ({ payload }))];
+      if (statement.startsWith('SELECT id, payload FROM orders ORDER BY')) {
+        return [[...this.orders.values()].sort((a, b) => b.created_at.localeCompare(a.created_at)).slice(0, 200).map(({ id, payload }) => ({ id, payload }))];
       }
       if (statement.startsWith('SELECT id, status, payload FROM orders WHERE id >')) {
         const [cursorId] = values;

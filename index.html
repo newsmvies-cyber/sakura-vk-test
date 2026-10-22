@@ -10,7 +10,7 @@
   <meta name="vk-community-id" content="242422490">
   <title>Сакура — доставка роллов</title>
   <link rel="stylesheet" href="styles.css?v=20261021headerclose1">
-  <link rel="stylesheet" href="ui.css?v=20261022pickup1">
+  <link rel="stylesheet" href="ui.css?v=20261022intake1">
   <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
   <script src="profile-store.js?v=20261021vkprofile1"></script>
   <script src="order-history-store.js?v=20261021localhistory1"></script>
@@ -31,6 +31,7 @@
     </header>
 
     <main id="top">
+      <div class="order-intake-banner" id="orderIntakeBanner" role="status" aria-live="polite" hidden>Временно не принимаем заявки. Пожалуйста, загляните позже.</div>
       <section class="hero" data-page="home" aria-label="Сакура — меню и доставка">
         <div class="hero-copy">
           <span class="eyebrow">ЯПОНСКАЯ КУХНЯ · АЛЕКСЕЕВКА</span>
@@ -146,6 +147,7 @@
           <label>Комментарий к заявке <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например: если оплата наличными — с какой суммы подготовить сдачу?"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="#" data-legal="policy">политикой обработки данных</a> и <a href="#" data-legal="offer">офертой</a></span></label>
           <div class="checkout-total"><span>Предварительная стоимость</span><strong id="checkoutTotal"></strong></div>
+          <p class="order-intake-checkout" id="orderIntakeCheckout" role="status" hidden>Временно не принимаем заявки. Пожалуйста, загляните позже.</p>
           <button class="primary-button" type="submit">Отправить заявку</button>
         </form>
       </div>
@@ -159,7 +161,7 @@
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
   <script src="admin-alerts.js?v=20261022alerts1"></script>
-  <script src="app.js?v=20261022alerts1"></script>
+  <script src="app.js?v=20261022intake1"></script>
 </body>
 </html>
 

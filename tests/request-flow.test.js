@@ -68,6 +68,18 @@ test('checkout UI uses request language, preliminary total, and keeps intake not
   assert.doesNotMatch(html, /Подтвердить заказ|Переводом после подтверждения|VK Pay|эквайринг/i);
 });
 
+test('order intake notice uses existing gateway routes and admin toggle has a visible success state', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  const app = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
+  assert.match(html, /id="orderIntakeBanner"/);
+  assert.match(html, /id="orderIntakeCheckout"/);
+  assert.match(app, /fetch\(base\+'\/health'/);
+  assert.match(app, /\/admin\/orders\/SAKURA-SETTING-ORDER-INTAKE\/status/);
+  assert.match(app, /if\(!acceptingOrders\).*Временно не принимаем заявки/);
+  assert.match(app, /Сообщения VK включены ✓/);
+  assert.doesNotMatch(app, /\/admin\/settings\/order-intake|\/order-intake/);
+});
+
 test('request dispatcher sends the application request to its configured transport', async () => {
   let transportCalls = 0;
   const result = await flow.dispatch({ status: 'new' }, async () => {
