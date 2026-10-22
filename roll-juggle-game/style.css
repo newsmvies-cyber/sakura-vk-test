@@ -19,3 +19,30 @@ footer{flex:none;padding-top:8px;display:flex;gap:6px;justify-content:center;ali
 .card #play{display:flex;justify-content:center;align-items:center;min-height:64px;padding:16px 22px;border:1px solid #82384b;border-radius:21px;background:linear-gradient(135deg,#aa546c,#84384c);font-size:19px;font-weight:800;letter-spacing:.01em;line-height:1.2;text-align:center;box-shadow:0 5px 0 #ead3dc,0 10px 22px #8a3d5026}.card #play:active{transform:translateY(3px);box-shadow:0 2px 0 #ead3dc,0 4px 12px #8a3d501a}@media(max-height:510px){.card #play{min-height:52px;padding:12px 18px;font-size:18px}}
 
 .legendary-skin{grid-column:1/-1}.legendary-skin:not(.locked){border:2px solid #c6a15d;background:linear-gradient(135deg,#fffaf0,#e3f1ed);box-shadow:inset 0 0 0 3px #fff8e5}.legendary-skin .skin-preview{max-width:250px}.skin-bonus{font-size:10px;color:#956c28;font-weight:750}
+
+/* Compact mobile intro and a pinned close control in the scrollable wardrobe. */
+.card:has(#play){padding:17px 16px 13px;overflow:hidden;scrollbar-width:none}
+.card:has(#play)::-webkit-scrollbar,.skin-dialog::-webkit-scrollbar{display:none;width:0;height:0}
+.mini-roll{width:46px;height:46px;margin-bottom:10px;border-radius:16px;font-size:0;transform:none;box-shadow:0 3px 0 #fcf3f3}
+.mini-roll svg{display:block;width:29px;height:29px}
+.card h2{font-size:clamp(26px,7.2vw,34px);margin:8px 0 10px}
+.card>p:not(.eyebrow){font-size:11px;line-height:1.5;margin:7px 0}
+.card button{min-height:48px;margin-top:12px;padding:9px 14px 9px 18px;font-size:14px}
+.card #play{min-height:56px;padding:13px 20px;font-size:18px}
+.card #openSkins{min-height:40px;margin-top:8px;padding:8px 12px;font-size:12px}
+.card .hint{font-size:8px!important;margin:10px 0 0}
+.pause-button[hidden]{display:none!important}
+.skin-dialog{max-height:82dvh;padding:16px;scrollbar-width:none;overscroll-behavior:contain}
+.skin-heading{position:sticky;top:-16px;z-index:3;margin:-16px -16px 8px;padding:13px 14px 8px;background:#fbf8f5;border-bottom:1px solid #eee1db}
+.skin-heading h2{font-size:26px;margin:3px 0}
+.skin-heading button{width:40px;height:40px;flex-basis:40px;border-radius:14px}
+.skin-heading button svg{width:22px;height:22px}
+.skin-description{font-size:11px;line-height:1.45;margin:8px 0}
+.collection-progress{margin:8px 0;padding:8px 10px;font-size:10px}
+.skin-list{gap:8px}
+.skin-choice{min-height:108px;gap:4px;padding:8px 6px;border-radius:15px}
+.skin-choice .skin-preview{aspect-ratio:16/6;height:auto}
+.skin-choice svg{height:48px}
+.skin-name{font-size:12px}
+.skin-state{font-size:9px}
+@media(max-height:690px){.game{padding-top:max(9px,env(safe-area-inset-top));padding-bottom:max(7px,env(safe-area-inset-bottom))}.stats{margin-bottom:8px}.stats>div{min-height:56px;padding:7px 9px}.field{border-radius:21px}.card:has(#play){padding:13px 14px 10px}.mini-roll{width:40px;height:40px;margin-bottom:7px}.mini-roll svg{width:26px;height:26px}.card h2{font-size:clamp(25px,6.8vw,31px);margin:6px 0 8px}.card>p:not(.eyebrow){font-size:10px;margin:5px 0}.card button{min-height:43px;margin-top:9px}.card #play{min-height:49px}.card #openSkins{min-height:36px;margin-top:6px}.card .hint{margin-top:7px}.skin-dialog{max-height:78dvh}.skin-choice{min-height:96px}}
