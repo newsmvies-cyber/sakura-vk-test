@@ -39,3 +39,12 @@ test('records a declined native prompt so app launch does not repeatedly interru
   assert.deepEqual(await permission.requestOnce(bridge, storage, '12345', 242422490), { requested: false, reason: 'already-requested' });
   assert.equal(calls, 1);
 });
+
+test('restores the displayed permission state separately for each VK account', () => {
+  const storage = makeStorage();
+  permission.markAttempt(storage, '12345', 'allowed');
+  permission.markAttempt(storage, '67890', 'not-allowed');
+  assert.equal(permission.getOutcome(storage, '12345'), 'allowed');
+  assert.equal(permission.getOutcome(storage, '67890'), 'not-allowed');
+  assert.equal(permission.getOutcome(storage, '99999'), '');
+});

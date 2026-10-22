@@ -17,6 +17,15 @@
     try { return storage.getItem(key) !== null; } catch (_) { return false; }
   }
 
+  function getOutcome(storage, vkId) {
+    var key = storageKey(vkId);
+    if (!key || !storage) return '';
+    try {
+      var value = JSON.parse(storage.getItem(key) || '{}');
+      return value && (value.outcome === 'allowed' || value.outcome === 'not-allowed') ? value.outcome : '';
+    } catch (_) { return ''; }
+  }
+
   function markAttempt(storage, vkId, outcome) {
     var key = storageKey(vkId);
     if (!key || !storage) return false;
@@ -43,7 +52,7 @@
     }
   }
 
-  var api = { storageKey: storageKey, wasAttempted: wasAttempted, markAttempt: markAttempt, requestOnce: requestOnce };
+  var api = { storageKey: storageKey, wasAttempted: wasAttempted, getOutcome: getOutcome, markAttempt: markAttempt, requestOnce: requestOnce };
   root.SakuraMessagePermission = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
