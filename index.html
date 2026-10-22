@@ -9,7 +9,7 @@
   <meta name="vk-app-id" content="54834346">
   <meta name="vk-community-id" content="242422490">
   <title>Сакура — доставка роллов</title>
-  <link rel="stylesheet" href="styles.css?v=20261021headerclose1">
+  <link rel="stylesheet" href="styles.css?v=20261022legalfooter1">
   <link rel="stylesheet" href="ui.css?v=20261022intake1">
   <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
   <script src="profile-store.js?v=20261021vkprofile1"></script>
@@ -96,7 +96,16 @@
         </div>
       </section>
 
-      <footer class="footer" data-page="home"><a href="#" data-legal="policy">Политика конфиденциальности</a><a href="#" data-legal="offer">Публичная оферта</a><p>Сакура · Алексеевка · 10:00–22:00 МСК</p><small>Демонстрационная версия — заявки пока не отправляются.</small></footer>
+      <footer class="footer" aria-label="Документы и информация">
+        <nav class="footer-legal-links" aria-label="Юридические документы">
+          <a href="legal/privacy-draft.html">Политика конфиденциальности</a><span aria-hidden="true">·</span>
+          <a href="legal/terms-draft.html">Пользовательское соглашение</a><span aria-hidden="true">·</span>
+          <a href="legal/offer-draft.html">Публичная оферта</a>
+        </nav>
+        <p>Сакура · Алексеевка · 10:00–22:00 МСК</p>
+        <small>Юридические тексты — черновики, требуют заполнения и утверждения.</small>
+        <small>Демонстрационная версия — заявки пока не отправляются.</small>
+      </footer>
     </main>
   </div>
 
@@ -146,7 +155,7 @@
           <fieldset><legend>Оплата при получении</legend><div class="payment-options"><label><input type="radio" name="payment" value="Наличными" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="Картой при получении"><span>Картой</span></label></div></fieldset>
           <label class="status-notification-consent"><input type="checkbox" name="notifyStatus"><span>Получать сообщения о статусе заявки в VK</span></label>
           <label>Комментарий к заявке <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например: если оплата наличными — с какой суммы подготовить сдачу?"></textarea></label>
-          <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="#" data-legal="policy">политикой обработки данных</a> и <a href="#" data-legal="offer">офертой</a></span></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="legal/privacy-draft.html">политикой обработки данных</a> и <a href="legal/offer-draft.html">офертой</a></span></label>
           <div class="checkout-total"><span>Предварительная стоимость</span><strong id="checkoutTotal"></strong></div>
           <p class="order-intake-checkout" id="orderIntakeCheckout" role="status" hidden>Временно не принимаем заявки. Пожалуйста, загляните позже.</p>
           <button class="primary-button" type="submit">Отправить заявку</button>
@@ -162,7 +171,7 @@
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
   <script src="admin-alerts.js?v=20261022alerts1"></script>
-  <script src="app.js?v=20261022permission-state2"></script>
+  <script src="app.js?v=20261022legal-links1"></script>
 </body>
 </html>
 
