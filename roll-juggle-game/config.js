@@ -12,7 +12,7 @@
     trailPoints:6,
     impactParticles:6,
     maxEffects:8,
-    maxPixelRatio:1.5,
+    maxPixelRatio:2.5,
     rollEvery:10,
     maxRolls:5,
     speedUpAfter:50,

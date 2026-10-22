@@ -79,7 +79,7 @@
   function syncSoundButton(){soundButton.setAttribute('aria-pressed',String(!sound.enabled));soundButton.setAttribute('aria-label',sound.enabled?'Выключить звук':'Включить звук');}
   soundButton.addEventListener('click',()=>{sound.toggle();syncSoundButton();});syncSoundButton();
   const canvas=document.getElementById('canvas'),field=document.getElementById('field'),overlay=document.getElementById('overlay'),scoreEl=document.getElementById('score'),bestEl=document.getElementById('best'),levelEl=document.getElementById('level'),button=document.getElementById('play');
-  let ctx=canvas.getContext('2d'),world,running=false,paused=false,last=0,accumulator=0,best=0,shownScore=-1,newBest=false,frameRequest=0,spriteDpr=1,spriteKey='';
+  let ctx=canvas.getContext('2d'),world,running=false,paused=false,last=0,accumulator=0,best=0,shownScore=-1,newBest=false,frameRequest=0,spriteDpr=1,spriteKey='';ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
 
   const skins=[
     {id:'wood',name:'Дерево',at:0,base:'#a96832',edge:'#8f5427',light:'#dbab6b',cap:'#b86b8f'},
@@ -99,8 +99,8 @@
   try{const saved=Number(localStorage.getItem(C.storageKey));if(Number.isSafeInteger(saved)&&saved>0)best=saved;}catch{}
   try{const id=localStorage.getItem(C.storageKey+'-skin');if(skins.some(s=>s.id===id&&isUnlocked(s)))selectedSkin=id;}catch{}
   bestEl.textContent=best;
-  function resize(){const box=field.getBoundingClientRect(),w=Math.max(180,box.width),h=Math.max(180,box.height),dpr=Math.min(window.devicePixelRatio||1,C.maxPixelRatio);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);spriteDpr=dpr;if(world)world.resize(w,h);else world=new World(w,h);world.paddleScale=activeSkin().size||1;world.move(world.target);buildSprites();draw();if(running&&!paused)scheduleFrame();}
-  function makeSprite(width,height,paint){const image=document.createElement('canvas');image.width=Math.ceil(width*spriteDpr);image.height=Math.ceil(height*spriteDpr);const original=ctx;ctx=image.getContext('2d');try{ctx.setTransform(spriteDpr,0,0,spriteDpr,0,0);paint();}finally{ctx=original;}return {image,width,height};}
+  function resize(){const box=field.getBoundingClientRect(),w=Math.max(180,box.width),h=Math.max(180,box.height),dpr=Math.min(window.devicePixelRatio||1,C.maxPixelRatio);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.setTransform(dpr,0,0,dpr,0,0);spriteDpr=dpr;if(world)world.resize(w,h);else world=new World(w,h);world.paddleScale=activeSkin().size||1;world.move(world.target);buildSprites();draw();if(running&&!paused)scheduleFrame();}
+  function makeSprite(width,height,paint){const image=document.createElement('canvas');image.width=Math.ceil(width*spriteDpr);image.height=Math.ceil(height*spriteDpr);const original=ctx;ctx=image.getContext('2d');try{ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.setTransform(spriteDpr,0,0,spriteDpr,0,0);paint();}finally{ctx=original;}return {image,width,height};}
   function buildSprites(){if(typeof document.createElement!=='function')return;const key=[spriteDpr,world.radius,world.paddleWidth,C.handScale,selectedSkin].join(':');if(spriteKey===key)return;const size=world.radius*2+10;sprites.rolls=[];for(let type=0;type<5;type++)for(let mood=0;mood<3;mood++)sprites.rolls.push(makeSprite(size,size,()=>{ctx.translate(size/2,size/2);ctx.scale(world.radius/28,world.radius/28);rollArt(type,mood);}));const width=world.paddleWidth+24,previousDpr=spriteDpr;spriteDpr=Math.max(3,spriteDpr);try{sprites.hand=makeSprite(width,110,()=>{ctx.translate(width/2,22);handArt();});}finally{spriteDpr=previousDpr;}spriteKey=key;}
   function path(fill,stroke,width=2){ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}}
   function ellipse(x,y,rx,ry,color){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);path(color);}
@@ -143,7 +143,7 @@
   function drawChopsticks(material){
 
     // Top chopstick matches paddleSlope; the second opens out beneath it.
-    for(const stick of [{left:0,right:200},{left:210,right:285}]){
+    for(const stick of [{left:0,right:200},{left:188,right:263}]){
       const slope=(stick.right-stick.left)/720;
       ctx.beginPath();ctx.moveTo(0,stick.left-5);ctx.lineTo(715,stick.right-13);ctx.quadraticCurveTo(726,stick.right-13,724,stick.right-2);ctx.lineTo(721,stick.right+12);ctx.lineTo(0,stick.left+5);ctx.closePath();let finish=material.base;const middle=stick.left+slope*360;finish=ctx.createLinearGradient(360+slope*18,middle-18,360-slope*18,middle+18);finish.addColorStop(0,material.edge);finish.addColorStop(.2,material.base);finish.addColorStop(.42,material.light);finish.addColorStop(.52,material.base);finish.addColorStop(.8,material.base);finish.addColorStop(1,material.edge);path(finish,material.edge,2);
       ctx.beginPath();ctx.moveTo(10,stick.left-2);ctx.lineTo(591,stick.left+slope*591-6);ctx.strokeStyle=material.light;ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.moveTo(20,stick.left+slope*20+2);ctx.lineTo(590,stick.left+slope*590+7);ctx.strokeStyle=material.edge;ctx.globalAlpha=.4;ctx.lineWidth=1.5;ctx.stroke();ctx.globalAlpha=1;
