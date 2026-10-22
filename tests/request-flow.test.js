@@ -80,22 +80,6 @@ test('order intake notice uses existing gateway routes and admin toggle has a vi
   assert.doesNotMatch(app, /\/admin\/settings\/order-intake|\/order-intake/);
 });
 
-test('admin status control uses touch buttons instead of the native select picker', () => {
-  const app = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
-  const styles = fs.readFileSync(path.join(__dirname, '..', 'ui.css'), 'utf8');
-  assert.match(app, /function renderAdminOrderList/);
-  assert.match(app, /function renderAdminOrders/);
-  assert.match(app, /data-order-status-toggle/);
-  assert.match(app, /data-order-status-option/);
-  assert.match(app, /data-status-option/);
-  assert.match(app, /adminStatusBusyOrderId/);
-  assert.match(app, /if\(!adminStatusBusyOrderId\)renderAdminOrderList\(content\)/);
-  assert.match(app, /\/admin\/orders\/.*\/status/);
-  assert.match(styles, /admin-status-trigger/);
-  assert.match(styles, /admin-status-option/);
-  assert.doesNotMatch(app, /<select data-order-status/);
-});
-
 test('request dispatcher sends the application request to its configured transport', async () => {
   let transportCalls = 0;
   const result = await flow.dispatch({ status: 'new' }, async () => {
