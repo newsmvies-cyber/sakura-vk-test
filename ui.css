@@ -180,3 +180,18 @@
 
 /* Staff notification controls fit narrow screens. */
 #profileOverlay.admin-mode .admin-toolbar{flex-wrap:wrap}
+
+/* Embedded, same-origin game view and the post-order invitation. */
+.game-overlay{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;min-height:0;background:var(--cream);padding-top:env(safe-area-inset-top)}
+.game-overlay[hidden],.game-offer-overlay[hidden]{display:none!important}
+.game-overlay-header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:5px max(14px,env(safe-area-inset-right)) 5px max(16px,env(safe-area-inset-left));border-bottom:1px solid var(--line);background:#fffaf8;color:var(--ink);font-size:15px;font-weight:800}
+.game-overlay-header button{display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid #eadbd5;border-radius:15px;background:#f7eceb;color:var(--berry);font-size:29px;line-height:1;cursor:pointer;touch-action:manipulation}
+.game-overlay iframe{display:block;flex:1 1 auto;width:100%;height:0;min-height:0;border:0;background:var(--cream)}
+.game-offer-overlay{position:fixed;inset:0;z-index:110;display:flex;align-items:center;justify-content:center;padding:22px max(18px,env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));background:rgba(55,43,43,.36);backdrop-filter:blur(3px)}
+.game-offer-card{width:min(100%,420px);padding:25px 22px 20px;border:1px solid #eadbd5;border-radius:24px;background:var(--cream);box-shadow:0 18px 55px rgba(55,43,43,.2);text-align:center}
+.game-offer-card .eyebrow{font-size:10px;letter-spacing:.14em}
+.game-offer-card h2{margin:12px 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,7vw,34px);line-height:1.15;color:var(--ink)}
+.game-offer-card p{margin:0 0 18px;color:var(--muted);font-size:14px;line-height:1.55}
+.game-offer-card .primary-button{width:100%;min-height:52px;touch-action:manipulation}
+.game-offer-later{margin:13px 0 0;padding:10px 12px;border:0;background:transparent;color:var(--berry);font-size:14px;font-weight:750;cursor:pointer;touch-action:manipulation}
+@media(max-width:420px){.game-offer-card{padding:22px 18px 16px;border-radius:21px}}

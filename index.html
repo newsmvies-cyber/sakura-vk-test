@@ -10,7 +10,7 @@
   <meta name="vk-community-id" content="242422490">
   <title>Сакура — доставка роллов</title>
   <link rel="stylesheet" href="styles.css?v=20261022legalfooter1">
-  <link rel="stylesheet" href="ui.css?v=20261022intake1">
+  <link rel="stylesheet" href="ui.css?v=20261023game1">
   <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
   <script src="profile-store.js?v=20261021vkprofile1"></script>
   <script src="order-history-store.js?v=20261021localhistory1"></script>
@@ -124,7 +124,7 @@
       <div class="drawer-head"><span class="eyebrow">САКУРА</span><button type="button" id="closeDrawer" aria-label="Закрыть меню">×</button></div>
       <button type="button" class="drawer-link" data-route="catalog">Наше меню <span>⌄</span></button>
       <div class="drawer-categories" id="drawerCategories"></div>
-      <hr><button type="button" class="drawer-link" data-route="promotions">Акции <span>↗</span></button><button type="button" class="drawer-link" data-route="about">О нас <span>↗</span></button><button type="button" class="drawer-link" data-route="delivery">Доставка и оплата <span>↗</span></button>
+      <hr><button type="button" class="drawer-link" data-route="promotions">Акции <span>↗</span></button><button type="button" class="drawer-link" data-route="about">О нас <span>↗</span></button><button type="button" class="drawer-link" data-route="delivery">Доставка и оплата <span>↗</span></button><button type="button" class="drawer-link" data-action="game">Набивай роллы <span>▶</span></button>
       <hr><button type="button" class="drawer-link" data-action="profile">Личный кабинет <span>↗</span></button><button type="button" class="drawer-sublink" data-profile-view="orders">Мои заявки</button><button type="button" class="drawer-sublink" data-profile-view="settings">Данные</button><button type="button" class="drawer-sublink" data-profile-view="coupons">Мои промокоды</button><button type="button" class="drawer-link" data-action="cart">Корзина <b id="drawerCartCount">0</b></button><button type="button" class="drawer-link" data-action="admin" hidden>Тестовая админка <span>↗</span></button>
     </nav>
   </div>
@@ -167,11 +167,24 @@
     <button type="button" class="image-viewer-close" id="closeImageViewer" aria-label="Закрыть">×</button>
     <img id="largeMenuImage" alt="Лист меню Сакура">
   </div>
+  <div class="game-overlay" id="gameOverlay" hidden>
+    <div class="game-overlay-header"><span>Набивай роллы</span><button type="button" id="closeGame" aria-label="Закрыть игру">×</button></div>
+    <iframe id="gameFrame" title="Игра «Набивай роллы»" data-src="roll-juggle-game/index.html?v=20261023embed1" loading="lazy" allow="autoplay"></iframe>
+  </div>
+  <div class="game-offer-overlay" id="gameOfferOverlay" hidden>
+    <section class="game-offer-card" role="dialog" aria-modal="true" aria-labelledby="gameOfferTitle">
+      <span class="eyebrow">ЗАЯВКА ОТПРАВЛЕНА</span>
+      <h2 id="gameOfferTitle">Пока ждёте подтверждения</h2>
+      <p>Можно сыграть в «Набивай роллы». Рекорд и коллекция палочек сохраняются на этом устройстве.</p>
+      <button type="button" class="primary-button" id="playAfterOrder">Сыграть</button>
+      <button type="button" class="game-offer-later" id="dismissGameOffer">Остаться в приложении</button>
+    </section>
+  </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
   <script src="admin-alerts.js?v=20261022alerts1"></script>
-  <script src="app.js?v=20261022legal-links1"></script>
+  <script src="app.js?v=20261023game1"></script>
 </body>
 </html>
 
