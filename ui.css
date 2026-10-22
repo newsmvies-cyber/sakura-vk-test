@@ -164,3 +164,6 @@
 #profileOverlay:not(.admin-mode) .profile-sheet>.simple-close{position:fixed;top:calc(12px + env(safe-area-inset-top));right:calc(env(safe-area-inset-right) + 14px);width:46px;height:46px;font-size:30px}
 #profileOverlay:not(.admin-mode) .profile-sheet h2{max-width:none;margin:0 0 20px;font-size:clamp(30px,4vw,40px)}
 #profileOverlay:not(.admin-mode) .profile-tabs,#profileOverlay:not(.admin-mode) #profileContent{width:min(100%,900px);margin-left:auto;margin-right:auto}
+
+/* The pickup card links to the existing About page. */
+.pickup-card{color:inherit;text-decoration:none}
