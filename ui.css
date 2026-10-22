@@ -180,3 +180,12 @@
 
 /* Staff notification controls fit narrow screens. */
 #profileOverlay.admin-mode .admin-toolbar{flex-wrap:wrap}
+
+/* Use explicit touch buttons for status changes; native select popups can fail in Android VK WebView. */
+#profileOverlay.admin-mode .admin-status-picker{display:grid;gap:8px;width:min(100%,420px)}
+#profileOverlay.admin-mode .admin-status-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:52px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--berry);font-size:16px;font-weight:800;text-align:left;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+#profileOverlay.admin-mode .admin-status-trigger:disabled{opacity:.65}
+#profileOverlay.admin-mode .admin-status-menu{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(69,43,38,.1)}
+#profileOverlay.admin-mode .admin-status-option{min-height:48px;padding:9px 10px;border:1px solid #eadbd4;border-radius:10px;background:#fbf7f4;color:#65434c;font-size:14px;font-weight:700;text-align:left;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+#profileOverlay.admin-mode .admin-status-option[aria-pressed="true"]{border-color:#9fc8a7;background:#edf8ef;color:#28663a}
+#profileOverlay.admin-mode .admin-status-terminal{display:inline-flex;align-items:center;min-height:42px;padding:8px 12px;border:1px solid #eadbd4;border-radius:10px;background:#f7f1ed;color:var(--muted);font-size:15px;font-weight:800}
