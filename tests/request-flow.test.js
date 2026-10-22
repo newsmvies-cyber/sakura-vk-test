@@ -80,6 +80,14 @@ test('order intake notice uses existing gateway routes and admin toggle has a vi
   assert.doesNotMatch(app, /\/admin\/settings\/order-intake|\/order-intake/);
 });
 
+test('VK staff message permission treats a resolved Bridge request as success and rejects failures', () => {
+  const app = fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8');
+  assert.match(app, /VKWebAppAllowMessagesFromGroup/);
+  assert.match(app, /\.then\(function\(\)\{markCommunityMessagePermission\('allowed'\);staffMessagesChecked=true;staffMessagesEnabled=true;/);
+  assert.match(app, /\.catch\(function\(\)\{markCommunityMessagePermission\('not-allowed'\);staffMessagesChecked=true;staffMessagesEnabled=false;/);
+  assert.doesNotMatch(app, /staffMessagesEnabled=!!\(result&&result\.result===true\)/);
+});
+
 test('request dispatcher sends the application request to its configured transport', async () => {
   let transportCalls = 0;
   const result = await flow.dispatch({ status: 'new' }, async () => {
