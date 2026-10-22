@@ -167,3 +167,6 @@
 
 /* The pickup card links to the existing About page. */
 .pickup-card{color:inherit;text-decoration:none}
+
+/* Staff notification controls fit narrow screens. */
+#profileOverlay.admin-mode .admin-toolbar{flex-wrap:wrap}

@@ -1,3 +1,4 @@
+const { notifyStaff } = require('./staff-notifications');
 const { createHmac, timingSafeEqual, randomInt } = require('node:crypto');
 const catalog = require('./catalog.json');
 const { ALLOWED_STATUSES, ALLOWED_PAYMENTS, transitionOrder, cleanupDecision } = require('./order-lifecycle');
@@ -288,6 +289,7 @@ function createHandler(dependencies = {}) {
       order.legalEvents = [{ action: 'offer_accepted', document: 'offer', version: legalDocumentVersions.offer, userId: identity.userId, occurredAt: new Date().toISOString() }];
       if (order.notifyStatus) order.legalEvents.push({ action: 'status_notifications_consent', document: 'consent', version: legalDocumentVersions.consent, userId: identity.userId, occurredAt: new Date().toISOString() });
       await db((sql) => sql`UPSERT INTO orders (id, created_at, status, payload) VALUES (${order.id}, ${order.createdAt}, ${order.status}, ${JSON.stringify(order)})`, context);
+      try { await (dependencies.notifyStaff || notifyStaff)(order, env); } catch (_) { /* Saved requests must survive notification failures. */ }
       return response(201, { ok: true, orderId: order.id }, corsOrigin);
     }
 
