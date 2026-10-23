@@ -10,7 +10,7 @@
   <meta name="vk-community-id" content="242422490">
   <title>Сакура — доставка роллов</title>
   <link rel="stylesheet" href="styles.css?v=20261022legalfooter1">
-  <link rel="stylesheet" href="ui.css?v=20261023game1">
+  <link rel="stylesheet" href="ui.css?v=20261023geosuggestdebounce1">
   <script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
   <script src="profile-store.js?v=20261021vkprofile1"></script>
   <script src="order-history-store.js?v=20261021localhistory1"></script>
@@ -149,7 +149,7 @@
           <div class="profile-phone-field"><label>Телефон<input name="phone" type="tel" required inputmode="tel" placeholder="+7 (___) ___-__-__"></label><button class="secondary-button phone-permission-button" type="button" data-request-profile-phone>Получить номер из ВКонтакте</button></div>
           <label>Количество персон<select name="persons" id="personsSelect" required><option value="1">1 персона</option><option value="2">2 персоны</option><option value="3">3 персоны</option><option value="4">4 персоны</option></select><small class="person-limit-note">До 1 000 ₽ — максимум 4 персоны; свыше 1 000 ₽ — до 10.</small></label>
           <fieldset><legend>Как получить заказ?</legend><div class="segmented"><label><input type="radio" name="fulfillment" value="delivery" checked><span>Доставка</span></label><label><input type="radio" name="fulfillment" value="pickup"><span>Самовывоз</span></label></div></fieldset>
-          <label id="addressField">Адрес доставки<input id="deliveryAddressInput" name="address" type="text" autocomplete="street-address" maxlength="180" placeholder="Алексеевка, улица, дом, квартира" aria-describedby="deliveryAddressHint"><small class="address-hint" id="deliveryAddressHint">Укажите город, улицу и номер дома.</small></label>
+          <div id="addressField" class="address-field"><label for="deliveryAddressInput">Адрес доставки</label><input id="deliveryAddressInput" name="address" type="text" autocomplete="street-address" maxlength="180" placeholder="Алексеевка, улица, дом, квартира" aria-describedby="deliveryAddressHint" aria-autocomplete="list" aria-controls="addressSuggestions" aria-expanded="false"><small class="address-hint" id="deliveryAddressHint">Укажите город, улицу и номер дома.</small><div class="address-suggestions" id="addressSuggestions" role="listbox" aria-label="Подсказки адреса" hidden></div></div>
           <div class="pickup-address" id="pickupAddress" hidden>Самовывоз: Алексеевка, ул. Некрасова, 59</div>
           <label>Время получения<select name="slot" id="slotSelect" required></select></label>
           <fieldset><legend>Оплата при получении</legend><div class="payment-options"><label><input type="radio" name="payment" value="Наличными" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="Картой при получении"><span>Картой</span></label></div></fieldset>
@@ -184,7 +184,7 @@
   <script src="maps-config.js"></script>
   <script src="backend-config.js"></script>
   <script src="admin-alerts.js?v=20261022alerts1"></script>
-  <script src="app.js?v=20261023game1"></script>
+  <script src="app.js?v=20261023geosuggestdebounce1"></script>
 </body>
 </html>
 
