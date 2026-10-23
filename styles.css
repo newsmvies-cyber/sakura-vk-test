@@ -12,3 +12,4 @@
 
 .profile-phone-field{display:grid;gap:8px}.phone-permission-button{justify-self:start;font-size:11px;padding:9px 12px}.profile-phone-field label{display:block}
 
+.cash-change-hint{display:block;color:#8a3d50;font-size:10px;font-weight:600;line-height:1.5;margin-top:2px}

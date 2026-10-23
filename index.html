@@ -154,7 +154,7 @@
           <label>Время получения<select name="slot" id="slotSelect" required></select></label>
           <fieldset><legend>Оплата при получении</legend><div class="payment-options"><label><input type="radio" name="payment" value="Наличными" checked><span>Наличными</span></label><label><input type="radio" name="payment" value="Картой при получении"><span>Картой</span></label></div></fieldset>
           <label class="status-notification-consent"><input type="checkbox" name="notifyStatus"><span>Получать сообщения о статусе заявки в VK</span></label>
-          <label>Комментарий к заявке <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Например: если оплата наличными — с какой суммы подготовить сдачу?"></textarea></label>
+          <label>Комментарий к заявке <span class="optional">необязательно</span><textarea name="comment" rows="2" maxlength="300" placeholder="Пожелания к заказу"></textarea><small class="cash-change-hint" id="cashChangeHint" hidden>Если нужна сдача, напишите, пожалуйста, с какой суммы её подготовить.</small></label>
           <label class="consent"><input type="checkbox" name="consent" required><span>Согласен(на) с <a href="legal/privacy-draft.html">политикой обработки данных</a> и <a href="legal/offer-draft.html">офертой</a></span></label>
           <div class="checkout-total"><span>Предварительная стоимость</span><strong id="checkoutTotal"></strong></div>
           <p class="order-intake-checkout" id="orderIntakeCheckout" role="status" hidden>Временно не принимаем заявки. Пожалуйста, загляните позже.</p>
