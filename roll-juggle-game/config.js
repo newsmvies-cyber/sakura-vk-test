@@ -15,7 +15,7 @@
     maxPixelRatio:2.5,
     rollEvery:10,
     maxRolls:5,
-    speedUpAfter:50,
+    speedUpAfter:60,
     speedStepGain:0.08,
     paddleBottom:103,
     followSpeed:28,
@@ -27,9 +27,9 @@
     stages:[
       {from:0,rolls:1,flightSeconds:2.65,horizontalSpeed:68,label:'Плавно'},
       {from:10,rolls:2,flightSeconds:2.5,horizontalSpeed:85,label:'В ритме'},
-      {from:20,rolls:3,flightSeconds:2.35,horizontalSpeed:102,label:'Жарко!'},
-      {from:30,rolls:4,flightSeconds:2.2,horizontalSpeed:118,label:'Очень жарко!'},
-      {from:50,rolls:5,flightSeconds:2.05,horizontalSpeed:132,label:'Экстрим!'}
+      {from:33,rolls:3,flightSeconds:2.35,horizontalSpeed:102,label:'Жарко!'},
+      {from:46,rolls:4,flightSeconds:2.2,horizontalSpeed:118,label:'Очень жарко!'},
+      {from:60,rolls:5,flightSeconds:2.05,horizontalSpeed:132,label:'Экстрим!'}
     ],
     // Difficulty keeps increasing past 80, without a score ceiling.
     endlessSpeedGain:0.004,
